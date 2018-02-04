@@ -4,4 +4,3 @@
 2. Prema dokumentaciji sam napravio search.
 3. Svu bookmarkovani heroji se cuvaju u localstorage.
 4. Bookmarkovani heroji se izcitavaju iz localstorage, a search heroji se dovlace putem API-a.
-5. Za bookmarkovanje sam iskoristio TodoMVC sa https://vuejs.org/v2/examples/todomvc.html.
