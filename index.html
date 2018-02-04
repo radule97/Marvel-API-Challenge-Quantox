@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Marvel</title>
+
+    <link rel="stylesheet" href="css/app.css">
+  </head>
+  <body>
+  <div id="app">
+    <div class="container">
+      <nav class="nav">
+        <img src="images/header.jpg" alt="" class="header">
+        <img src="images/logo.png" alt="" class="logo">
+        <input type="text" name="search" value="" id="search" placeholder="Search" v-model="search" @keyup="searchHero">
+        <button class="close-search" @click="clearSearch(); searchHero();"> x </button>
+      </nav>
+
+      <p class="loading">{{ text }}</p>
+      
+      <template v-for="hero in heroes">
+        <article class="hero" :style="{background: 'url('+hero.thumbnail.path+'/portrait_incredible.'+hero.thumbnail.extension+')'}">
+          <div class="bookmark" @click="bookmarkHero(hero)"><span v-html="hero.star"></span></div>
+          <div class="hero-name" >
+            <p>{{ hero.name }}</p>
+          </div>
+        </article>
+      </template>
+
+
+
+        <div class="pagination" v-if="afterApi">
+          <button @click="pagination('prev')" v-if="off > 0" >PREV Page</button>
+          <button @click="pagination('next')" v-if="heroes.length">NEXT Page</button>
+        </div>
+
+
+
+
+
+    <footer class="footer">
+      <a href="http://marvel.com"> <img src="images/logo.png" alt="" class="logo">
+      {{ footer.attributionText }}</a>
+    </footer>
+    </div>
+  </div>
+
+
+
+
+
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="js/app.js"></script>
+  </body>
+</html>
